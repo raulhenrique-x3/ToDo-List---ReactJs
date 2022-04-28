@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+Me deparei com o seguinte erro no console ao desenvolver o ToDo 
+**"Uncaught TypeError: props.items.map is not a function"**.
+    Pesquisando um pouco mais a fundo sobre o .map() descobri que ele aguarda um array com informações e eu não me atentei e acabei passando:
+        *setItems(...items, item)*
+        ao invés de
+        *setItems([...items, item])*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    O problema foi solucionado de forma autonoma e o sistema voltou a funcionar normalmente.
 
-## Available Scripts
 
-In the project directory, you can run:
+**Warning: Encountered two children with the same key**
+    Também me deparei com esse problema e com pesquisas descobri que se eu usar outro parametro para a função map essa key não será duplicada, portanto o erro é solucionado! Porém, ao decorrer da aula vi que ao criarmos um objeto com class temos acesso ao "static", isso permitiu que os id's dos items fossem ordenados de 0 ao número de items no ToDo ou seja, tornando o uso do index no map "*.map((element, index) => {}*" desnecessário.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**PROBLEMA COM O ToDo (NÃO SOLUCIONADO)**
 
-### `npm test`
+Encontrei um problema na tentativa de marcar uma tarefa como feita e irei relatar:
+    Não estou usando imagens para os icones que aparecem junto com a tarefa pois faço as importações direto do React Icons ou seja, os arquivos não vem como linhas "HTML" para estilização comum. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    O que eu quero?
+        Ao clicar no icone de feito quero fazer com que ele fique verde indicando que a tarefa foi concluída.
+    
+    Como posso solucionar esse problema?
+        1. Posso usar uma imagem em PNG comum e passar as referências segundo a vídeo aula;
+        2. Posso importar outro SVG do React Icons e tentar fazer Js inline no mesmo;
 
-### `npm run build`
+    Como posso fazer o JS Inline?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        onClick={()=>{props.onItemDeleted(item)}}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        Tendo como base esse exemplo de evento, aparentemente eu poderia fazer algo como:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        function doneItem(){
+            let workDone = document.querySelector('done').style.backgroundColor = 'green'
+                if(workDone){
+                    console.log("teste")
+                }else{
+                    console.log("Algum error")
+                }
+        }
 
-### `npm run eject`
+        <FaDone className='done' onClick={doneItem}/>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

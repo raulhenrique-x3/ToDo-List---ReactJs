@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #a52a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(150, 150, 150);
+    margin-top: 18px;
+    width: 700px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+}
+
+form{
+    margin: 18px 0 18px 0;    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+ul{
+    box-shadow: 0 0 10px #0000001a;
+}
+
+li{
+    list-style-type: none;
+    margin: 18px 0 18px 0;
+    font-size: 1.3rem;
+    width: 24vw;
+    background-color: #fff;
+    text-align: center;
+}
+
+
+.inputField{
+    width: 40vw;
+    height: 5vh;
+    border: none;
+}
+
+.inputField[type="text"]{
+    font-size: 1.3rem;
+}
+
+.addBtn{
+    border: none;
+    background-color: #a52a2a;
+    width: 30px;
+    height: 5vh;
+    cursor: pointer;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 8px;
+}
+
+.FaEdit{
+    cursor: pointer;
+}
+
+
+.react-icons{
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkTask{
+    width: 20px;
+    height: 20px;
+}
+
+.checked{
+    text-decoration: line-through;
+}
+
+.done{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check{
+    text-decoration: line-through;
+}
