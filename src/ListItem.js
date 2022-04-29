@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaEdit, FaWindowClose, FaCheck, FaCheckCircle} from 'react-icons/fa';
+import {FaWindowClose, FaCheck, FaCheckCircle} from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
     function DoneItem(props){
@@ -19,7 +19,6 @@ import { IconContext } from "react-icons";
                     {props.item.text}
                         <IconContext.Provider value={{ className: 'react-icons' }}>
                     <div className="icons">
-                        <FaEdit/>
                         <span className='done' onClick={()=>{props.onDone(props.item)}}>
                             <DoneItem done={props.item.done}></DoneItem>
                         </span>
