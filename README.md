@@ -13,7 +13,7 @@ Me deparei com o seguinte erro no console ao desenvolver o ToDo
 
 
 
-**PROBLEMA COM O ToDo (NÃO SOLUCIONADO)**
+**PROBLEMA COM O ToDo (SOLUCIONADO)**
 
 Encontrei um problema na tentativa de marcar uma tarefa como feita e irei relatar:
     Não estou usando imagens para os icones que aparecem junto com a tarefa pois faço as importações direto do React Icons ou seja, os arquivos não vem como linhas "HTML" para estilização comum. 
@@ -25,20 +25,10 @@ Encontrei um problema na tentativa de marcar uma tarefa como feita e irei relata
         1. Posso usar uma imagem em PNG comum e passar as referências segundo a vídeo aula;
         2. Posso importar outro SVG do React Icons e tentar fazer Js inline no mesmo;
 
-    Como posso fazer o JS Inline?
+        Encontrei a solução desse problema da seguinte maneira:
+            Eu precisei de 3 items diferentes para o processo!
+            As duas imagens SVG exportadas do ReactIcons e um span para receber o evento "onClick={}".
+            Ao clicar no <span> faz com que a função onDone seja executada no ToDo e essa função
+            é responsável por fazer a verificação do estado dos items e então eu fiz uma verificação no objeto DoneItem passando ele dentro do <span> e fazendo com que DoneItem, por meio da verificação, veja se a tarefa foi feita. Se a tarefa foi feita ele faz uma simples troca de SVG por meio das condicionais IF e ELSE.
 
-        onClick={()=>{props.onItemDeleted(item)}}
-
-        Tendo como base esse exemplo de evento, aparentemente eu poderia fazer algo como:
-
-        function doneItem(){
-            let workDone = document.querySelector('done').style.backgroundColor = 'green'
-                if(workDone){
-                    console.log("teste")
-                }else{
-                    console.log("Algum error")
-                }
-        }
-
-        <FaDone className='done' onClick={doneItem}/>
 
